@@ -4,8 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="clients")
-public class Client {
+@Table(name="sellers")
+public class Seller {
 
     private String name;
     private String address;
