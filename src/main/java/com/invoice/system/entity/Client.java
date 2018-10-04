@@ -1,12 +1,13 @@
 package com.invoice.system.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-@Entity
-@Table(name="clients")
+@Entity(name="clients")
 public class Client {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String name;
     private String address;
     private String zipcode;

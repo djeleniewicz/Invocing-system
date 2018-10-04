@@ -4,13 +4,14 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 @Entity(name = "users")
 public class User {
 
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
-        private int id;
+        private Long id;
         @Column(nullable = false, unique = true)
         @Size(min = 4, max = 15)
         private String username;
@@ -23,12 +24,21 @@ public class User {
         private String lastName;
         private int enabled;
 
-    public int getId() {
-        return id;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
+
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getUsername() {
