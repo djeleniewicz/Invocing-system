@@ -1,10 +1,10 @@
 package com.invoice.system.util;
 
+import com.invoice.system.entity.Invoice;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import pl.dominik.cmms.entity.orders.Order;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 public class PdfConverter {
 
-    public static ByteArrayInputStream orderReport(List<Order> ordersList) {
+    public static ByteArrayInputStream invoice(List<Invoice> invoiceList) {
 
         Document document = new Document();
         ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -33,11 +33,11 @@ public class PdfConverter {
             table.addCell(hcell);
 
 
-            for (Order order : ordersList) {
+            for (Invoice invoice : invoiceList) {
 
                 PdfPCell cell;
 
-                cell = new PdfPCell(new Phrase(order.getId()));
+                cell = new PdfPCell(new Phrase(invoice.getId()));
                 cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
                 cell.setHorizontalAlignment(Element.ALIGN_CENTER);
                 table.addCell(cell);
