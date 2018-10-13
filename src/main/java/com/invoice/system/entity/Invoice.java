@@ -1,9 +1,6 @@
 package com.invoice.system.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name="invoices")
 public class Invoice {
@@ -12,9 +9,15 @@ public class Invoice {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @ManyToOne
     private Seller seller;
+
+    @ManyToOne
     private User user;
+    @ManyToOne
     private Client client;
+
+    @ManyToMany
     private Resources resources;
 
     public Long getId() {
