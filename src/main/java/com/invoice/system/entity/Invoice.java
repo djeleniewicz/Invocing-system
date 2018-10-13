@@ -2,7 +2,7 @@ package com.invoice.system.entity;
 
 import javax.persistence.*;
 
-@Entity(name="invoices")
+@Entity(name = "invoices")
 public class Invoice {
 
     @Id
@@ -14,10 +14,11 @@ public class Invoice {
 
     @ManyToOne
     private User user;
+
     @ManyToOne
     private Client client;
 
-    @ManyToMany
+    @ManyToOne
     private Resources resources;
 
     public Long getId() {

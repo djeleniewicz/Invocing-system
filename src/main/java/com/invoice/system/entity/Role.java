@@ -2,7 +2,7 @@ package com.invoice.system.entity;
 
 import javax.persistence.*;
 
-@Entity(name = "role")
+@Entity(name = "roles")
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
