@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>INVOICE SYSTEM</title>
+    <title>Home Invoice application</title>
 </head>
 <body>
-
+<h1>Invoice application</h1>
 </body>
 </html>
